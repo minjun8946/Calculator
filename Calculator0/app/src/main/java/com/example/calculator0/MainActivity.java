@@ -54,8 +54,52 @@ public class MainActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() { //첫번쨰 줄 뒤로가기
             @Override
             public void onClick(View view) {
-                num/=10;
-                push.setText(Integer.toString(num));
+                if(pm==0 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(num));
+                }
+                else if(pm==1 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"+"+num);
+                }
+                else if(pm==2 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"-"+num);
+                }
+                else if(pm==3 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"*"+num);
+                }
+                else if(pm==4 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"÷"+num);
+                }
+                else if(pm==5 && number==0) {
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"%"+num);
+                }
+
+                else if(pm==1 && number==1){
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"+"+num);
+
+                }
+                else if(pm==2 && number==1){
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"-"+num);
+                }
+                else if(pm==3 && number==1){
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"*"+num);
+                }
+                else if(pm==4 && number==1){
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"÷"+num);
+                }
+                else if(pm==5 && number==1){
+                    num /= 10;
+                    push.setText(Integer.toString(pre)+"%"+num);
+                }
             }
         });
 
@@ -63,15 +107,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(num==0&&result!=0){
-                    pm=4;
+                    pm=5;
                     num=0;
-                    push.setText(Integer.toString(pre)+"÷");
+                    push.setText(Integer.toString(pre)+"%");
                 }
                 else if(num!=0&&result==0){
-                    pm=4;
+                    pm=5;
                     pre=num;
                     num=0;
-                    push.setText(Integer.toString(pre)+"÷");
+                    push.setText(Integer.toString(pre)+"%");
                 }
             }
         });
@@ -87,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 j=0;
                 number=0;
 
-                push.setText("입력");;
-                memory.setText("입력");
+                memory.setText(" ");
+                push.setText("0");;
             }
         });
 
@@ -423,7 +467,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        five.setOnClickListener(new View.OnClickListener() { //세번쨰 줄 5
+        five.setOnClickListener(
+                new View.OnClickListener() { //세번쨰 줄 5
             @Override
             public void onClick(View view) {
                 if (pm == 0) {
@@ -828,16 +873,65 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        sign.setOnClickListener(new View.OnClickListener() { //다섯번쨰 부호
+        sign.setOnClickListener(new View.OnClickListener() { //다섯번쨰 줄 부호
             @Override
             public void onClick(View view) {
-                if(num>0){
-                    num=num-num-num;
-                    push.setText(Integer.toString(num));
+                if(pm==1||pm==2||pm==5) {
+                    if (pre != 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) + num);
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) + "+" + num);
+                        }
+                    } else if (pre == 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        }
+                    }
                 }
-                else{
-                    num=num-num-num;
-                    push.setText(Integer.toString(num));
+                else if(pm==3){
+                    if (pre != 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) +"*("+ num+")");
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) +"*"+ num);
+                        }
+                    } else if (pre == 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        }
+                    }
+                }
+                else if(pm==4){
+                    if (pre != 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) +"÷("+ num+")");
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(pre) +"÷"+ num);
+                        }
+                    } else if (pre == 0 && num != 0) {
+                        if (num > 0) {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        } else {
+                            num = num - num - num;
+                            push.setText(Integer.toString(num));
+                        }
+                    }
                 }
             }
         });
@@ -846,7 +940,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (pm == 0) {
-
                     if (i == 0) {
                         num += 0;
                         push.setText(Integer.toString(num));
@@ -890,7 +983,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-                else if(pm==4){
+                /*else if(pm==4){
                     if (i == 0) {
                         num += 0;
                         push.setText(Integer.toString(pre)+"÷"+num);
@@ -900,7 +993,7 @@ public class MainActivity extends AppCompatActivity {
                         push.setText(Integer.toString(pre)+"÷"+num);
 
                     }
-                }
+                }*/
                 else if(pm==5){
                     if (i == 0) {
                         num += 0;
@@ -918,25 +1011,26 @@ public class MainActivity extends AppCompatActivity {
         squ.setOnClickListener(new View.OnClickListener() { //다섯번쨰 줄 제곱
             @Override
             public void onClick(View view) {
-                if(result==0) {
-                    result = num * num;
-                    num = 0;
-                    pre = 0;
-                    number = 0;
-                    push.setText("입력");
-                    memory.setText(Integer.toString(result));
-                    pre = result;
-                    i = 0;
-                }
-                else{
-                    result *=result;
-                    num = 0;
-                    pre = 0;
-                    number = 1;
-                    push.setText("입력");
-                    memory.setText(Integer.toString(result));
-                    pre = result;
-                    i = 0;
+                if(num==0||result==0) {
+                    if (result == 0) {
+                        result = num * num;
+                        num = 0;
+                        pre = 0;
+                        number = 0;
+                        push.setText("0");
+                        memory.setText(Integer.toString(result));
+                        pre = result;
+                        i = 0;
+                    } else {
+                        result *= result;
+                        num = 0;
+                        pre = 0;
+                        number = 1;
+                        push.setText("0");
+                        memory.setText(Integer.toString(result));
+                        pre = result;
+                        i = 0;
+                    }
                 }
             }
         });
@@ -945,47 +1039,47 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(pm==1){
+                if(pm==1 && i!=0){
                     result=pre+num;
                     num=0;
                     number=1;
-                    push.setText("입력");
+                    push.setText("0");
                     memory.setText(Integer.toString(result));
                     pre = result;
                     i=0;
                 }
-                if(pm==2){
+                if(pm==2 && i!=0){
                     result=pre-num;
                     num=0;
                     number=1;
-                    push.setText("입력");
+                    push.setText("0");
                     memory.setText(Integer.toString(result));
                     pre = result;
                     i=0;
                 }
-                if(pm==3){
+                if(pm==3 && i!=0){
                     result=pre*num;
                     num=0;
                     number=1;
-                    push.setText("입력");
+                    push.setText("0");
                     memory.setText(Integer.toString(result));
                     pre = result;
                     i=0;
                 }
-                if(pm==4){
+                if(pm==4 && i!=0){
                     result=pre/num;
                     num=0;
                     number=1;
-                    push.setText("입력");
+                    push.setText("0");
                     memory.setText(Integer.toString(result));
                     pre = result;
                     i=0;
                 }
-                if(pm==5){
+                if(pm==5 && i!=0){
                     result=pre%num;
                     num=0;
                     number=1;
-                    push.setText("입력");
+                    push.setText("0");
                     memory.setText(Integer.toString(result));
                     pre = result;
                     i=0;

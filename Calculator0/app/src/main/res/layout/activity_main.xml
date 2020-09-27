@@ -15,14 +15,14 @@
         android:id="@+id/memory"
         android:gravity="right"
         android:textSize="50dp"
-        android:text="입력"/>
+        android:text=" "/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/push"
         android:gravity="right"
         android:textSize="50dp"
-        android:text="입력"/>
+        android:text="0"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,8 +43,7 @@
             android:layout_height="match_parent"
             android:id="@+id/remainder"
             android:text="%"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
