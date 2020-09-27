@@ -62,11 +62,16 @@ public class MainActivity extends AppCompatActivity {
         remainder.setOnClickListener(new View.OnClickListener() { //첫번쨰 줄 나머지
             @Override
             public void onClick(View view) {
-                if(i!=0){
-                    pm=5;
+                if(num==0&&result!=0){
+                    pm=4;
+                    num=0;
+                    push.setText(Integer.toString(pre)+"÷");
+                }
+                else if(num!=0&&result==0){
+                    pm=4;
                     pre=num;
                     num=0;
-                    push.setText(Integer.toString(pre)+"%");
+                    push.setText(Integer.toString(pre)+"÷");
                 }
             }
         });
@@ -90,7 +95,12 @@ public class MainActivity extends AppCompatActivity {
         division.setOnClickListener(new View.OnClickListener() { //첫번쨰 줄 나누기
             @Override
             public void onClick(View view) {
-                if(i!=0){
+                if(num==0&&result!=0){
+                    pm=4;
+                    num=0;
+                    push.setText(Integer.toString(pre)+"÷");
+                }
+                else if(num!=0&&result==0){
                     pm=4;
                     pre=num;
                     num=0;
@@ -324,7 +334,12 @@ public class MainActivity extends AppCompatActivity {
         multiply.setOnClickListener(new View.OnClickListener() { //두번쨰 줄 곱하기
             @Override
             public void onClick(View view) {
-                if(i!=0){
+                if(num==0&&result!=0){
+                    pm=3;
+                    num=0;
+                    push.setText(Integer.toString(pre)+"*");
+                }
+                else if(num!=0&&result==0){
                     pm=3;
                     pre=num;
                     num=0;
@@ -557,11 +572,15 @@ public class MainActivity extends AppCompatActivity {
         minus.setOnClickListener(new View.OnClickListener() { //세번쨰 줄 빼기
             @Override
             public void onClick(View view) {
-                if(i!=0){
+                if(num==0&&result!=0){
+                    pm=2;
+                    num=0;
+                    push.setText(Integer.toString(pre)+"-");
+                }
+                else if(num!=0&&result==0){
                     pm=2;
                     pre=num;
                     num=0;
-
                     push.setText(Integer.toString(pre)+"-");
                 }
             }
@@ -792,7 +811,12 @@ public class MainActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() { //네번쨰 줄 더하기
             @Override
             public void onClick(View view) {
-                if(i!=0){
+                if(num==0&&result!=0){
+                    pm=1;
+                    num=0;
+                    push.setText(Integer.toString(pre)+"+");
+                }
+                else if(num!=0&&result==0){
                     pm=1;
                     pre=num;
                     num=0;
@@ -898,7 +922,7 @@ public class MainActivity extends AppCompatActivity {
                     result = num * num;
                     num = 0;
                     pre = 0;
-                    number = 1;
+                    number = 0;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
                     pre = result;
@@ -924,7 +948,6 @@ public class MainActivity extends AppCompatActivity {
                 if(pm==1){
                     result=pre+num;
                     num=0;
-                    pre=0;
                     number=1;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
@@ -934,7 +957,6 @@ public class MainActivity extends AppCompatActivity {
                 if(pm==2){
                     result=pre-num;
                     num=0;
-                    pre=0;
                     number=1;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
@@ -944,7 +966,6 @@ public class MainActivity extends AppCompatActivity {
                 if(pm==3){
                     result=pre*num;
                     num=0;
-                    pre=0;
                     number=1;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
@@ -954,7 +975,6 @@ public class MainActivity extends AppCompatActivity {
                 if(pm==4){
                     result=pre/num;
                     num=0;
-                    pre=0;
                     number=1;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
@@ -964,7 +984,6 @@ public class MainActivity extends AppCompatActivity {
                 if(pm==5){
                     result=pre%num;
                     num=0;
-                    pre=0;
                     number=1;
                     push.setText("입력");
                     memory.setText(Integer.toString(result));
