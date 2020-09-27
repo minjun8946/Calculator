@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     num=0;
                     push.setText(Integer.toString(pre)+"%");
                 }
-                else if(num!=0&&result==0){
+                else if(num!=0&&result==0 && pm==0){
                     pm=5;
                     pre=num;
                     num=0;
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     num=0;
                     push.setText(Integer.toString(pre)+"÷");
                 }
-                else if(num!=0&&result==0){
+                else if(num!=0&&result==0 && pm==0){
                     pm=4;
                     pre=num;
                     num=0;
@@ -383,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
                     num=0;
                     push.setText(Integer.toString(pre)+"*");
                 }
-                else if(num!=0&&result==0){
+                else if(num!=0&&result==0 && pm==0){
                     pm=3;
                     pre=num;
                     num=0;
@@ -622,7 +622,7 @@ public class MainActivity extends AppCompatActivity {
                     num=0;
                     push.setText(Integer.toString(pre)+"-");
                 }
-                else if(num!=0&&result==0){
+                else if(num!=0&&result==0 && pm==0){
                     pm=2;
                     pre=num;
                     num=0;
@@ -856,12 +856,12 @@ public class MainActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() { //네번쨰 줄 더하기
             @Override
             public void onClick(View view) {
-                if(num==0&&result!=0){
+                if(num==0&&result!=0){//두번째 부터
                     pm=1;
                     num=0;
                     push.setText(Integer.toString(pre)+"+");
                 }
-                else if(num!=0&&result==0){
+                else if(num!=0&&result==0 && pm==0){ //첫번째
                     pm=1;
                     pre=num;
                     num=0;
